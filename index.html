@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="fr" dir="ltr">
+<head>
+  <meta charset="utf-8">
+  <title>Le Pari Sportif</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <div class="container-fluid justify-content-center text-center">
+      <div class="row">
+        <h1 class="col">Projet JS - Le Pari Sportif</h1>
+        </div>
+        <div class="row justify-content-around">
+          <img src="https://tse2.mm.bing.net/th?id=OIP.y81B79MF3I426FUrMYsujAHaMb&pid=Api&P=0&w=300&h=300" alt="logo" style="height:100px; width:80px;">
+            <img src="https://tse3.mm.bing.net/th?id=OIP.UnZ7GwAon-qkwUQZiUGaCQHaJ7&pid=Api&P=0&w=300&h=300" alt="logo" style="height:100px; width:80px;">
+          <img src="https://tse1.mm.bing.net/th?id=OIP.W_V5WMCsUG9aGY93h3Io5QAAAA&pid=Api&P=0&w=300&h=300" alt="logo" style="height:100px; width:110px;">
+          <img src="https://tse3.mm.bing.net/th?id=OIP.uU4JP_YWg8rqbIqPJzT8vwHaKb&pid=Api&P=0&w=300&h=300" alt="logo" style="height:100px; width:80px;">
+          <img src="https://tse2.mm.bing.net/th?id=OIP.tENCQY6ky6jM15C8hRVHWgHaIy&pid=Api&P=0&w=300&h=300" alt="logo" style="height:100px; width:80px;">
+        </div>
+          <!-- <p class="col">Essayez de trouver le score exact du match.</p> -->
+          <!-- <p class="col">Si vous trouvez 50% de la réponse, vous gagnez 50 points de votre adversaire.</p>
+          <p class="col">Si vous trouver le score, exacte vous gagnez 100 points.</p> -->
+        <div class="row">
+        </div>
+      </div>
+    </header>
+          <!-- NOM DES JOUEURS-->
+    <div class="container justify-content-center align-items-center text-center">
+      <div class="row mt-3 mb-3">
+        <div class="col">
+          <form>
+            <label for="nom1">Joueur 1 :</label>
+            <input id="nom1" type="text" class="form-control text-center" placeholder="Votre prénom ici" required>
+          </form>
+        </div>
+        <div class="col">
+          <form>
+          <label for="nom2">Joueur 2 :</label>
+          <input id="nom2" type="text" class="form-control text-center" placeholder="Votre prénom ici" required>
+        </form>
+        </div>
+      </div>
+      <form>
+      <div class="row mt-3 mb-3">
+        <h3 class="col text-center">Veuillez saisir votre pari score.</h3>
+      </div>
+      <!-- DEVINETTE SCORE JOUEUR 1-->
+      <div class="row">
+        <div class="col">
+          <form>
+            <div class="input-group-prepend">
+              <span class="input-group-text">Equipe 1</span>
+              <input id="valaa" type="number" class="form-control text-center" min="0" max="5">
+              <span class="input-group-text">Equipe 2</span>
+              <input id="valba" type="number" class="form-control text-center" min="0" max="5">
+            </div>
+            <p></p>
+            <div class="alert" id="aficha"></div>
+          </form>
+        </div>
+            <!-- DEVINETTE SCORE JOUEUR 2-->
+          <div class="col">
+            <form>
+              <div class="input-group-prepend">
+                <span class="input-group-text">Equipe 1</span>
+                <input id="valab" type="number" class="form-control text-center" min="0" max="5">
+                <span class="input-group-text">Equipe 2</span>
+                <input id="valbb" type="number" class="form-control text-center" min="0" max="5">
+              </div>
+              <p></p>
+              <div class="alert" id="afichb"></div>
+            </form>
+          </div>
+      </div>
+      <!-- NOMBRE POINTS -->
+      <div class="row mt-3">
+        <div class="col">Tu as :
+          <input class="text-center" id="claca" type="button" value="100"> points.
+          <!-- <div id="claca"><span class="bg-light pr-2 pl-2">100</span> points.</div> -->
+        </div>
+        <div class="col">Tu as :
+          <input class="text-center" id="clacb" type="button" value="100"> points.
+        </div>
+      </div>
+      <!-- +/- POINTS -->
+      <!-- <div class="row mt-3 justify-content-around">
+        <div class="alert" id="aficha"></div>
+        <div class="alert" id="afichb"></div>
+      </div> -->
+      <!-- NOMBRE DE CLICKS -->
+      <div class="row mt-3">
+        <div class="col">
+          <button id="clic" type="button" class="btn btn-info" onclick="devinScr()">Click</button>
+        </div>
+      </div>
+      <!-- NOMBRE D ESSAIS -->
+      <div class="row mt-3">
+        <div class="col">
+          <!-- <div class="vies">
+            <ion-icon name="football-outline"></ion-icon>
+            <ion-icon name="football"></ion-icon>
+          </div> -->
+          <div class="display-anim"></div>
+            <button type="button" id="play_stop">Déclencher/Arrêter</button>
+          </div>
+          <!-- <div class="vies">
+              <ion-icon name="heart-outline"></ion-icon>
+              <ion-icon name="heart"></ion-icon>
+          </div> -->
+        </div>
+        <button type="button" class="btn btn-info" onclick="displayRej()">Rejouer</button>
+      </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns" crossorigin="anonymous"></script>
+    <script type="module" src="https://unpkg.com/ionicons@5.4.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule="" src="https://unpkg.com/ionicons@5.4.0/dist/ionicons/ionicons.js"></script>
+    <script src="script.js"></script>
+  </body>
+  </html>
